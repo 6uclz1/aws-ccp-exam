@@ -8,15 +8,16 @@ import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { shuffle } from 'lodash';
 import { questions } from './quizData';
+import { Question, Option } from './types';
 
 const QuizComponent = () => {
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState("");
-  const [isAnswered, setIsAnswered] = useState(false);
-  const [shuffledOptions, setShuffledOptions] = useState([]);
-  const [shuffledQuestions, setShuffledQuestions] = useState([]);
-  const [score, setScore] = useState(0);
-  const [questionsAnswered, setQuestionsAnswered] = useState(0);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
+  const [selectedAnswer, setSelectedAnswer] = useState<string>("");
+  const [isAnswered, setIsAnswered] = useState<boolean>(false);
+  const [shuffledOptions, setShuffledOptions] = useState<Option[]>([]);
+  const [shuffledQuestions, setShuffledQuestions] = useState<Question[]>([]);
+  const [score, setScore] = useState<number>(0);
+  const [questionsAnswered, setQuestionsAnswered] = useState<number>(0);
 
   // 初回レンダリング時に問題をシャッフル
   useEffect(() => {
